@@ -1,0 +1,15 @@
+<%= month_calendar do |date| %>
+  <%= date.day %>
+  <% str_date = DateTime.strptime(date.to_s, '%Y-%m-%d').to_s %>
+  <% if (@availabilities[str_date] & @my_checkups) && (@availabilities[str_date] & @my_checkups).empty? %>
+    Ma réservation
+  <% elsif @availabilities[str_date] && @availabilities[str_date].count > 1 %>
+    Complet
+  <% elsif date > DateTime.now && !date.saturday? && !date.sunday? %>
+    <button type="button" class="btn btn-success" data-toggle="modal" data-target=<%= "##{date.to_s}" %> >
+      Réserver
+    </button>
+    <%= render partial: '/shared/times_modal', locals: { date: date } %>
+  <% end %>
+<% end %>
+

@@ -5,3 +5,6 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
+
+Checkup.create(start_time: DateTime.now, user: User.last)
+Checkup.create(start_time: DateTime.tomorrow, user: User.last)
