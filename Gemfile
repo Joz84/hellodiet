@@ -29,3 +29,8 @@ group :development, :test do
 end
 
 gem "simple_calendar", "~> 2.0"
+gem 'money-rails'
+gem "cloudinary", "1.1.0"
+gem "attachinary", github: "assembler/attachinary"
+gem "jquery-fileupload-rails"
+gem "coffee-rails"

@@ -1,3 +1,67 @@
-<h1>Pages#home</h1>
-<p>Find me in app/views/pages/home.html.erb</p>
+<div class="presentation">
+  <div class="presentation-name">
+    Élodie Le Scanf
+  </div>
+  <div class="presentation-title">
+    <p>Nutritionniste, conseil et suivi en ligne</p>
+  </div>
+</div>
 
+<!-- banner -->
+
+<div class="banner" style="background-image: linear-gradient(-225deg, rgba(0,101,168,0.2) 0%, rgba(0,36,61,0.6) 50%), url('https://static.pexels.com/photos/8066/fruits-market-colors.jpg');
+  background-repeat: no-repeat;
+  background-attachment: fixed;">
+  <div class="banner-content">
+    <h1>Hello Diet</h1>
+    <p>Manger bien, manger sain</p>
+    <a class="btn btn-primary btn-lg">PRENDRE RDV DÈS MAINTENANT</a>
+  </div>
+</div>
+
+<div class="wrapper-white">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-3">
+
+      </div>
+      <div class="col-xs-12 col-sm-9">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
+      </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<br>
+<!-- Formules -->
+
+<div class="wrapper-white">
+  <div class="container">
+    <div class="row">
+      <% @formulas.each do |formula| %>
+        <div class="col-xs-12 col-sm-4">
+          <%= render partial: 'shared/card_formula', locals: {formula: formula} %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+
+<div class="wrapper-green">
+  <div class="container">
+    <div class="share-links">
+      <a href="#" class="share-link bg-facebook">
+        <i class="fa fa-facebook"></i>
+      </a>
+      <a href="#" class="share-link bg-twitter">
+        <i class="fa fa-twitter"></i>
+      </a>
+      <a href="#" class="share-link bg-email">
+        <i class="fa fa-envelope-o"></i>
+      </a>
+      <a href="#" class="share-link bg-text">
+        <i class="fa fa-mobile"></i>
+      </a>
+    </div>
+  </div>
+</div>

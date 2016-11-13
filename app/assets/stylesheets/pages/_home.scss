@@ -1,4 +1,10 @@
-/* -------------------------------------
- * CSS code specific to home page
- * (margin/padding adjustments)
- * ------------------------------------- */
+.wrapper-white {
+  background:white;
+  padding: 10vh 0vh;
+}
+
+.padding-card {
+  border: 1px solid grey;
+  padding: 30px;
+  background: white;
+}
