@@ -1,0 +1,46 @@
+.cta-wrapper {
+  position: relative;
+  overflow: hidden;
+
+  .cta-background {
+    background: url('https://static.pexels.com/photos/8066/fruits-market-colors.jpg');
+    background-size: cover;
+    background-position: center center;
+    &:after {
+      content: "";
+      position: absolute;
+      height: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      border-style: solid;
+      border-width: 0 0 500px 150px;
+      border-color: transparent transparent #DFF8EB transparent;
+    }
+  }
+
+  .cta-content {
+    padding: 70px 30px;
+  }
+}
+
+@media (max-width: 768px) {
+  .cta-background {
+    display: none;
+  }
+  .cta-wrapper {
+    background: linear-gradient(to bottom, rgba(#FFF, 0.7) 0%, rgba(#FFF, 0.7) 100%), url(https://images.pexels.com/photos/139751/pexels-photo-139751.jpeg?w=1260&h=750&auto=compress&cs=tinysrgb);
+    background-size: cover;
+    background-position: center center;
+  }
+}
+
+@media (min-width: 768px) {
+  .cta-background {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 50%;
+  }
+}
