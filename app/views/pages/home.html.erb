@@ -81,7 +81,7 @@
 </div>
 
 
-<%= scatter_chart Category.pluck(:x, :y) %>
+
 <%= line_chart Category.group_by_day(:created_at).count %>
 <div class="wrapper-green">
   <div class="container">
