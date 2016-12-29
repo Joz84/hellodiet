@@ -5,7 +5,18 @@
   <div class="presentation-title">
     <p>Nutritionniste, conseil et suivi en ligne</p>
   </div>
+
+  <div class="ball_wrap">
+    <div class="big_ball" style="background-image: url('<%= cl_image_path("hellodiet/elo1.jpg", gravity: "face", width: 150, height: 150, zoom: 0.5, crop: "thumb") %>')">
+
+    </div>
+<!--     <div class="middle_ball">
+      <i class="fa fa-at"></i>
+    </div>
+    <div class="small_ball"></div> -->
+  </div>
 </div>
+
 
 <!-- banner -->
 
@@ -15,7 +26,7 @@
   <div class="banner-content">
     <h1>Hello Diet</h1>
     <p>Manger bien, manger sain</p>
-    <a class="btn btn-primary btn-lg">PRENDRE RDV DÈS MAINTENANT</a>
+    <%= link_to "PRENDRE RDV DÈS MAINTENANT", calendar_path, class: "btn btn-primary btn-lg" %>
   </div>
 </div>
 
@@ -39,7 +50,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
       <div class="col-xs-12 col-md-3">
-        <%= cl_image_tag("hellodiet/explanations/calendar.png", class: "explanations-img") %>
+        <%= cl_image_tag("hellodiet/explanations/calendar.png", class: "explanations-img img-right") %>
       </div>
     </div>
     <div class="row">
@@ -57,7 +68,7 @@
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
       <div class="col-xs-12 col-md-3">
-        <%= cl_image_tag("hellodiet/explanations/graph.png", class: "explanations-img") %>
+        <%= cl_image_tag("hellodiet/explanations/graph.png", class: "explanations-img img-right") %>
       </div>
     </div>
   </div>

@@ -7,27 +7,14 @@
         <h4 class="modal-title" id="myModalLabel">Crénaux horaires disponibles</h4>
       </div>
       <div class="modal-body">
-
-        <div class="container">
-          <div class="row">
-            <div class="btn-group-vertical" role="group">
-              <% @planning[(@wdays[date.wday]).to_sym][:morning].each do |h| %>
-                <button type="button" class="btn btn-default"><%= "#{h}h - #{h+1}h" %></button>
-              <% end %>
-            </div>
-          </div>
-          <div class="row">
-            <div class="btn-group-vertical" role="group">
-              <% @planning[(@wdays[date.wday]).to_sym][:afternoon].each do |h| %>
-                <button type="button" class="btn btn-default"><%= "#{h}h - #{h+1}h" %></button>
-              <% end %>
-            </div>
-          </div>
-        </div>
+        <%= simple_form_for :booking, method: :post, url: test_path do |f| %>
+          <%= f.input :date, input_html: { value: date }, as: :hidden %>
+          <%= f.input :time, collection: @planning[(@wdays[date.wday]).to_sym], as: :radio_buttons, :label_method => lambda { |h| "#{h}h - #{h+1}h" }, label: false %>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
+        <%= f.button :submit, "Réserver", class: "btn btn-primary" %>
+        <% end %>
       </div>
     </div>
   </div>

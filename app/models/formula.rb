@@ -1,4 +1,5 @@
 class Formula < ApplicationRecord
+  has_many :checkups
   monetize :price_cents
   validates :name, presence: :true
   validates :name, uniqueness: true

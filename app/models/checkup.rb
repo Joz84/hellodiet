@@ -1,5 +1,6 @@
 class Checkup < ApplicationRecord
   belongs_to :user
+  belongs_to :formula
   has_many :forms
   validates :user, presence: :true
   validates :start_time, uniqueness: true

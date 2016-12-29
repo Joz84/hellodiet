@@ -32,8 +32,6 @@ ActiveRecord::Schema.define(version: 20161113224815) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.float    "y"
-    t.float    "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -44,14 +42,19 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.date     "paid_at"
     t.datetime "start_time"
     t.integer  "user_id"
+    t.integer  "formula_id"
     t.string   "state"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["formula_id"], name: "index_checkups_on_formula_id", using: :btree
     t.index ["user_id"], name: "index_checkups_on_user_id", using: :btree
   end
 
   create_table "forms", force: :cascade do |t|
     t.string   "token_gform"
+    t.float    "weight"
+    t.float    "waist"
+    t.float    "hips"
     t.integer  "checkup_id"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
@@ -83,10 +86,23 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "complement"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "country"
+    t.integer  "gender"
+    t.string   "telephone"
+    t.text     "comment"
+    t.datetime "birthday"
+    t.float    "size"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
+  add_foreign_key "checkups", "formulas"
   add_foreign_key "checkups", "users"
   add_foreign_key "forms", "categories"
   add_foreign_key "forms", "checkups"

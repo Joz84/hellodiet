@@ -6,6 +6,7 @@ class CreateCheckups < ActiveRecord::Migration[5.0]
       t.date :paid_at
       t.datetime :start_time
       t.references :user, foreign_key: true
+      t.references :formula, foreign_key: true
       t.string :state
 
       t.timestamps

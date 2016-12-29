@@ -20,3 +20,76 @@
   color: #616668;
 }
 
+.ball_wrap {
+  // position: relative;
+  // margin: 150px;
+  position: absolute;
+  width: 150px;
+  bottom: -50px;
+  right: 100px;
+}
+
+.big_ball {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 5px solid #04B6C2;
+}
+
+.middle_ball {
+    background: #04B6C2;
+    height: 70px;
+    width: 70px;
+    border-radius: 50%;
+    border: 5px solid #04B6C2;
+    position: absolute;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    text-align: center;
+    font-size: 40px;
+    font-family: 'Satisfy', cursive;
+    color: white;
+}
+
+.small_ball {
+    background: #04B6C2;
+    height: 40px;
+    width: 40px;
+    border-radius: 50%;
+    border: 5px solid #04B6C2;
+    position: absolute;
+}
+
+.ball_wrap div:nth-of-type(2) {
+    top: -40px;
+    left: -200px;
+}
+
+.ball_wrap div:nth-of-type(2):after {
+    content: "";
+    display: block;
+    border-left: 5px solid #04B6C2;
+    position: absolute;
+    height: 145px;
+    left: 130px;
+    top: -10px;
+    -webkit-transform: rotate(288deg);
+    transform: rotate(288deg);
+}
+
+.ball_wrap div:nth-of-type(3) {
+    right: 200px;
+    bottom: -70px;
+}
+
+.ball_wrap div:nth-of-type(3):after {
+    content: "";
+    display: block;
+    border-left: 5px solid #04B6C2;
+    position: absolute;
+    height: 100px;
+    left: 68px;
+    top: -75px;
+    -webkit-transform: rotate(50deg);
+    transform: rotate(50deg);
+}
