@@ -32,42 +32,34 @@ ActiveRecord::Schema.define(version: 20161113224815) do
 
   create_table "categories", force: :cascade do |t|
     t.string   "name"
-    t.float    "y"
-    t.float    "x"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "checkups", force: :cascade do |t|
     t.string   "content"
-    t.string   "kind"
-    t.date     "paid_at"
-    t.datetime "start_time"
+    t.boolean  "online"
+    t.datetime "date"
     t.integer  "user_id"
     t.string   "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.integer  "price_cents", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_checkups_on_user_id", using: :btree
   end
 
   create_table "forms", force: :cascade do |t|
     t.string   "token_gform"
+    t.float    "weight"
+    t.float    "waist"
+    t.float    "hips"
     t.integer  "checkup_id"
     t.integer  "category_id"
     t.datetime "created_at",  null: false
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_forms_on_category_id", using: :btree
     t.index ["checkup_id"], name: "index_forms_on_checkup_id", using: :btree
-  end
-
-  create_table "formulas", force: :cascade do |t|
-    t.string   "name"
-    t.string   "comment"
-    t.string   "photo_url"
-    t.integer  "number_of_sessions"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "price_cents",        default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,6 +75,18 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at",                          null: false
     t.datetime "updated_at",                          null: false
+    t.string   "first_name"
+    t.string   "last_name"
+    t.string   "address"
+    t.string   "complement"
+    t.string   "zip_code"
+    t.string   "city"
+    t.string   "country"
+    t.integer  "gender"
+    t.string   "telephone"
+    t.text     "comment"
+    t.datetime "birthday"
+    t.float    "size"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
