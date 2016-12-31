@@ -38,15 +38,14 @@ ActiveRecord::Schema.define(version: 20161113224815) do
 
   create_table "checkups", force: :cascade do |t|
     t.string   "content"
-    t.string   "kind"
-    t.date     "paid_at"
-    t.datetime "start_time"
+    t.boolean  "online"
+    t.datetime "date"
     t.integer  "user_id"
-    t.integer  "formula_id"
     t.string   "state"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["formula_id"], name: "index_checkups_on_formula_id", using: :btree
+    t.integer  "price_cents", default: 0, null: false
+    t.json     "payment"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_checkups_on_user_id", using: :btree
   end
 
@@ -61,16 +60,6 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.datetime "updated_at",  null: false
     t.index ["category_id"], name: "index_forms_on_category_id", using: :btree
     t.index ["checkup_id"], name: "index_forms_on_checkup_id", using: :btree
-  end
-
-  create_table "formulas", force: :cascade do |t|
-    t.string   "name"
-    t.string   "comment"
-    t.string   "photo_url"
-    t.integer  "number_of_sessions"
-    t.datetime "created_at",                     null: false
-    t.datetime "updated_at",                     null: false
-    t.integer  "price_cents",        default: 0, null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -102,7 +91,6 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
-  add_foreign_key "checkups", "formulas"
   add_foreign_key "checkups", "users"
   add_foreign_key "forms", "categories"
   add_foreign_key "forms", "checkups"

@@ -5,5 +5,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   get "/dashboard/", to: "pages#dashboard"
   get "/calendar/", to: "pages#calendar"
-  post "/test/", to: "pages#test"
+  resources :checkups, only: [:show, :create] do
+    resources :payments, only: [:new, :create]
+  end
 end

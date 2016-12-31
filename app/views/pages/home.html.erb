@@ -82,11 +82,40 @@
   </div>
   <div class="container">
     <div class="row">
-      <% @formulas.each do |formula| %>
-        <div class="col-xs-12 col-sm-4">
-          <%= render partial: 'shared/card_formula', locals: {formula: formula} %>
-        </div>
-      <% end %>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to dashboard_path do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037650/hellodiet/formulas/computer.jpg');">
+            <div class="card-category">Prix: <%= "#{humanized_money(28)} €" %></div>
+            <div class="card-description">
+              <h2>En ligne</h2>
+              <p>Votre suivi en quelques clics!</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to dashboard_path do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037579/hellodiet/formulas/advice.jpg');">
+            <div class="card-category">Prix: <%= "#{humanized_money(24)} €" %></div>
+            <div class="card-description">
+              <h2>A domicile</h2>
+              <p>Votre suivi chez vous!</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <div class="col-xs-12 col-sm-4">
+        <%= link_to dashboard_path do %>
+          <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037579/hellodiet/formulas/advice.jpg');">
+            <div class="card-category">Prix: <%= "#{humanized_money(24)} €" %></div>
+            <div class="card-description">
+              <h2>A domicile</h2>
+              <p>Votre suivi chez vous!</p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+
     </div>
   </div>
 </div>

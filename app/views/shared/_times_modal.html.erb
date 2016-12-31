@@ -4,12 +4,21 @@
     <div class="modal-content">
       <div class="modal-header">
         <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        <h4 class="modal-title" id="myModalLabel">Crénaux horaires disponibles</h4>
+        <h3 class="modal-title" id="myModalLabel">Réservation</h3>
       </div>
       <div class="modal-body">
-        <%= simple_form_for :booking, method: :post, url: test_path do |f| %>
+        <h4>À quelle heure?</h4>
+        <%= simple_form_for :booking, method: :post, url: checkups_path do |f| %>
           <%= f.input :date, input_html: { value: date }, as: :hidden %>
           <%= f.input :time, collection: @planning[(@wdays[date.wday]).to_sym], as: :radio_buttons, :label_method => lambda { |h| "#{h}h - #{h+1}h" }, label: false %>
+        <hr>
+        <h4>En ligne ou à domicile?</h4>
+        <p>Si vous habitez dans Bordeaux métropôle, je peux me déplacer à votre domicile.</p>
+          <%= f.collection_radio_buttons :online, [[true, 'En ligne'] ,[false, 'À domicile']], :first, :last %>
+        <div class="rappel-font">
+          <p><i><b>Rappel :</b><br>La première séance dure une heure (34€ en ligne / 38€ à domicile, inclu les frais de déplacements).<br>Les séances suivantes durent une demi heure (24€ en ligne / 28€ à domicile, inclu les frais de déplacements).</i></p>
+        </div>
+
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>

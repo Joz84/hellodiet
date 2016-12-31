@@ -2,14 +2,9 @@ class PagesController < ApplicationController
   skip_before_action :authenticate_user!, only: [ :home ]
 
   def home
-    @formulas = Formula.all
   end
 
   def dashboard
-  end
-
-  def test
-    raise
   end
 
   def calendar
