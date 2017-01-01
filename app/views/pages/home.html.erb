@@ -36,16 +36,16 @@
   </div>
   <div class="container">
     <div class="row">
-      <div class="col-xs-12 col-md-3">
+      <div class="col-xs-12 col-md-3 col-md-offset-1">
         <%= cl_image_tag("hellodiet/explanations/sign-up-icon-29411.png", class: "explanations-img") %>
       </div>
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-7">
         <h2>Etape 1 : Créer son compte </h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-7 col-md-offset-1">
         <h2>Etape 2: Choisir une date</h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
@@ -54,16 +54,16 @@
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-3">
+      <div class="col-xs-12 col-md-3 col-md-offset-1">
         <%= cl_image_tag("hellodiet/explanations/visioconf.jpg", class: "explanations-img") %>
       </div>
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-7">
         <h2>Etape 3 : Se rencontrer </h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
     </div>
     <div class="row">
-      <div class="col-xs-12 col-md-9">
+      <div class="col-xs-12 col-md-7 col-md-offset-1">
         <h2>Etape 4: Accéder son espace perso</h2>
         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, eius. Quidem dolorum voluptatem quas dolores, illo incidunt exercitationem porro velit deserunt? Nesciunt repellat incidunt illo ipsa voluptatibus temporibus, soluta numquam!
       </div>
@@ -120,9 +120,9 @@
   </div>
 </div>
 
+<iframe src="https://appear.in/coco-room" width="800" height="640" frameborder="0"></iframe>
 
-
-<%= line_chart Category.group_by_day(:created_at).count %>
+<%= line_chart Checkup.group_by_day(:created_at).count %>
 <div class="wrapper-green">
   <div class="container">
     <div class="share-links">

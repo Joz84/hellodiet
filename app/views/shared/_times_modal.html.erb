@@ -10,7 +10,7 @@
         <h4>À quelle heure?</h4>
         <%= simple_form_for :booking, method: :post, url: checkups_path do |f| %>
           <%= f.input :date, input_html: { value: date }, as: :hidden %>
-          <%= f.input :time, collection: @planning[(@wdays[date.wday]).to_sym], as: :radio_buttons, :label_method => lambda { |h| "#{h}h - #{h+1}h" }, label: false %>
+          <%= f.input :time, collection: daily_planning, as: :radio_buttons, :label_method => lambda { |h| "#{h}h00" }, label: false %>
         <hr>
         <h4>En ligne ou à domicile?</h4>
         <p>Si vous habitez dans Bordeaux métropôle, je peux me déplacer à votre domicile.</p>

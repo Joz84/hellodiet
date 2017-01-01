@@ -5,6 +5,9 @@ class CreateCheckups < ActiveRecord::Migration[5.0]
       t.boolean :online
       t.datetime :date
       t.references :user, foreign_key: true
+      t.float :weight
+      t.float :waist
+      t.float :hips
       t.string :state
       t.monetize :price, currency: { present: false }
       t.json :payment
