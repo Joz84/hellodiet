@@ -23,8 +23,41 @@
 .bg-dark-blue {
   background: #3b5998;
 }
-
+.bg-my-blue {
+  background: $my-blue;
+}
 .rappel-font{
   text-align: left;
   font-size: 12px;
 }
+
+.btn-orange {
+  color: white;
+  background: $my-orange;
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-orange:hover {
+  text-decoration: none !important;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn-blue {
+  color: white;
+  background: $my-blue2;
+  padding: 12px;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.btn-blue:hover {
+  text-decoration: none !important;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8 !important;
+}
+

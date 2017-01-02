@@ -11,7 +11,7 @@
   </head>
   <body>
 
-    <% if request.env['PATH_INFO'] == "/"%>
+    <% if request.env['PATH_INFO'] == "/" && current_user == nil %>
       <div class="navbar-fixed">
     <% else %>
       <div>

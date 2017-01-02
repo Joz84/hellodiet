@@ -1,17 +1,36 @@
-<h1>Séance <%= @checkup.id %></h1>
-<%= form_tag checkup_payments_path(@checkup) do %>
-  <article>
-    <label class="amount">
-      <span>Prix: <%= humanized_money_with_symbol(@checkup.price) %></span>
-    </label>
-  </article>
+<div class="wrapper-payment">
+  <div class="container-payment">
+    <h1>Récapitulatif</h1>
+    <hr>
+    <p><b>N° de réservation :</b> <%= @checkup.id %></p>
+    <p><b>Nom :</b> <%= current_user.full_name %></p>
+    <p><b>Email :</b> <%= current_user.email %></p>
+    <br>
+    <p>Une séance
+    <% if @checkup.online %>
+      en ligne
+    <% else %>
+      à domicile
+    <% end %>
+    </p>
+    <p><b>Date :</b> <%= @checkup.date.strftime("Le %Y/%m/%d à %HH%M") %></p>
 
-  <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-    data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-    data-name="Séance"
-    data-email="<%= current_user.email %>"
-    data-description="Séance <%= @checkup.id %>"
-    data-amount="<%= @checkup.price_cents %>"
-    data-currency="<%= @checkup.price.currency %>"></script>
+    <hr>
+    <%= form_tag checkup_payments_path(@checkup) do %>
+      <article>
+        <label class="amount">
+          <span>Prix: <%= "#{humanized_money(@checkup.price)} €" %></span>
+        </label>
+      </article>
 
-<% end %>
+      <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+        data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+        data-name="Séance"
+        data-email="<%= current_user.email %>"
+        data-description="N° de réservation <%= @checkup.id %>"
+        data-amount="<%= @checkup.price_cents %>"
+        data-currency="<%= @checkup.price.currency %>"></script>
+
+    <% end %>
+  </div>
+</div>

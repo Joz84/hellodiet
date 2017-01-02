@@ -14,15 +14,16 @@
         <hr>
         <h4>En ligne ou à domicile?</h4>
         <p>Si vous habitez dans Bordeaux métropôle, je peux me déplacer à votre domicile.</p>
-          <%= f.collection_radio_buttons :online, [[true, 'En ligne'] ,[false, 'À domicile']], :first, :last %>
-        <div class="rappel-font">
-          <p><i><b>Rappel :</b><br>La première séance dure une heure (34€ en ligne / 38€ à domicile, inclu les frais de déplacements).<br>Les séances suivantes durent une demi heure (24€ en ligne / 28€ à domicile, inclu les frais de déplacements).</i></p>
-        </div>
+<!--           <%= f.collection_radio_buttons :online, [[true, 'En ligne'] ,[false, 'À domicile']], :first, :last %> -->
+        <h4>Réserver</h4>
+        <%= f.button :submit, "En ligne", class: "btn-orange" %>
+        <%= f.button :submit, "À domicile", class: "btn-orange" %>
 
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-        <%= f.button :submit, "Réserver", class: "btn btn-primary" %>
+        <div class="rappel-font">
+          <p><i><b>Rappel :</b><br>La première séance dure une heure (34€ en ligne / 38€ à domicile, inclu les frais de déplacements).<br>Les séances suivantes durent une demi heure (24€ en ligne / 28€ à domicile, inclu les frais de déplacements).</i></p>
+        </div>
         <% end %>
       </div>
     </div>

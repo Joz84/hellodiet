@@ -1,20 +1,31 @@
+<div class="tabs">
+  <a class="tab" href="/">
+    <h3>Mon suivi</h3>
+  </a>
+  <a class="tab" href="/video">
+    <h3>Mon espace video</h3>
+  </a>
+  <a class="tab active" href="/calendar">
+    <h3>Mon agenda</h3>
+  </a>
+</div>
+
 <div class="wrapper-calendar">
   <%= month_calendar do |date| %>
     <% daily_bookings = @checkups.select{ |c| c.date.to_date == date.to_date } %>
     <% my_bookings = daily_bookings.select{ |c| c.user == current_user } %>
-    <%= date.day %>
-    <br>
+    <p><%= date.day %></p>
     <% if !my_bookings.empty? %>
       <% if my_bookings.first.state == "pending" %>
-        <%= link_to "Ma réservation (non confirmée)", new_checkup_payment_path(my_bookings.first) %>
+        <%= link_to "Ma réservation", new_checkup_payment_path(my_bookings.first), class: "btn-calendar-orange" %>
       <% else %>
-        <%= link_to "Ma réservation", checkup_path(my_bookings.first) %>
+        <%= link_to "Ma consultation", checkup_path(my_bookings.first), class: "btn-calendar-orange2" %>
       <% end %>
     <% elsif date > DateTime.now && !date.saturday? && !date.sunday? %>
       <% if daily_bookings.count >= @planning[(@wdays[date.wday]).to_sym].count %>
         Complet
       <% else %>
-        <button type="button" class="button-calendar" data-toggle="modal" data-target=<%= "##{date.to_s}" %> >
+        <button type="button" class="btn-calendar-blue" data-toggle="modal" data-target=<%= "##{date.to_s}" %> >
           Réserver
         </button>
         <% daily_planning = @planning[(@wdays[date.wday]).to_sym] - daily_bookings.map{ |c| c.date.hour } %>

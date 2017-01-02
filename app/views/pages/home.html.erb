@@ -83,7 +83,7 @@
   <div class="container">
     <div class="row">
       <div class="col-xs-12 col-sm-4">
-        <%= link_to dashboard_path do %>
+        <%= link_to root_path do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037650/hellodiet/formulas/computer.jpg');">
             <div class="card-category">Prix: <%= "#{humanized_money(28)} €" %></div>
             <div class="card-description">
@@ -94,7 +94,7 @@
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= link_to dashboard_path do %>
+        <%= link_to root_path do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037579/hellodiet/formulas/advice.jpg');">
             <div class="card-category">Prix: <%= "#{humanized_money(24)} €" %></div>
             <div class="card-description">
@@ -105,7 +105,7 @@
         <% end %>
       </div>
       <div class="col-xs-12 col-sm-4">
-        <%= link_to dashboard_path do %>
+        <%= link_to root_path do %>
           <div class="card" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.2)), url('http://res.cloudinary.com/dpilgpat0/image/upload/v1479037579/hellodiet/formulas/advice.jpg');">
             <div class="card-category">Prix: <%= "#{humanized_money(24)} €" %></div>
             <div class="card-description">
@@ -120,9 +120,7 @@
   </div>
 </div>
 
-<iframe src="https://appear.in/coco-room" width="800" height="640" frameborder="0"></iframe>
 
-<%= line_chart Checkup.group_by_day(:created_at).count %>
 <div class="wrapper-green">
   <div class="container">
     <div class="share-links">

@@ -1,3 +1,36 @@
-test
+<div class="tabs">
+  <a class="tab active" href="/">
+    <h3>Mon suivi</h3>
+  </a>
+  <a class="tab" href="/video">
+    <h3>Mon espace video</h3>
+  </a>
+  <a class="tab" href="/calendar">
+    <h3>Mon agenda</h3>
+  </a>
+</div>
 
-<%= link_to "calendar", calendar_path %>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-md-4">
+      <div class="dashboard-list">
+        <h2>Mon profil</h2>
+        <p><%= current_user.full_name %></p>
+        <h2>Mes consultations</h2>
+        <ul>
+          <% @checkups.each do |checkup| %>
+            <li>
+              <%= link_to checkup.date.strftime("Séance du %Y/%m/%d à %HH%M"), checkup_path(checkup) %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+    </div>
+    <div class="col-md-8">
+      <%= line_chart Checkup.group_by_day(:created_at).count %>
+    </div>
+  </div>
+</div>
+
+
+

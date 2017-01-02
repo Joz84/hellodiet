@@ -6,16 +6,6 @@ class Checkup < ApplicationRecord
   validates :date, uniqueness: true
   monetize :price_cents
 
-  def self.availabilities2
-    @checkups = Checkup.all
-    @availabilities = Hash.new()
-    @checkups.each do |c|
-      str_date = DateTime.strptime(c.date.to_s, '%Y-%m-%d').to_s
-      @availabilities[str_date] = @availabilities[str_date] ? @availabilities[str_date] << c : [c]
-    end
-    @availabilities
-  end
-
   def self.planning
     { Sunday:    [],
       Monday:    [ 9, 10, 11, 14, 15, 16, 17],
@@ -26,15 +16,17 @@ class Checkup < ApplicationRecord
       Saturday:  []}
   end
 
-  def self.booking(params, user)
-    booking_date = DateTime.parse("#{params[:date]} #{params[:time]}")
-    online = params[:online] == "true" ? true : false
+  def self.price(online, user)
     price = online ? 24 : 28
     price += 10 if user.checkups.empty?
+  end
+
+  def self.booking(params, online, user)
+    booking_date = DateTime.parse("#{params[:date]} #{params[:time]}")
     create( date: booking_date,
-      user: user,
-      online: online,
-      state:'pending',
-      price: price )
+            user: user,
+            online: online,
+            state:'pending',
+            price: price(online, user))
   end
 end
