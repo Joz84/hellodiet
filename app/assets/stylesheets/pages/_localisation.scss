@@ -1,14 +1,10 @@
-.wrapper-dashboard{
+.wrapper-localisation{
   background: $my-blue;
-  padding-top: 10px;
+  padding-top: 30px;
+  height: 89vh;
 }
 
-.dashboard-list{
-  padding-top: 40px;
-  height: 79vh;
-}
-
-.dashboard-graph{
+.localisation-graph{
   background: $my-white;
   border : 2px solid $my-grey;
   border-radius: 5px;

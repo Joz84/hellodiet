@@ -6,6 +6,7 @@ class PagesController < ApplicationController
 
   def dashboard
     @checkups = current_user.checkups
+    @past_checkups = Checkup.where(user: current_user, state: "past")
   end
 
   def video

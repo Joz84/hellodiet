@@ -1,10 +1,19 @@
 class CheckupsController < ApplicationController
   def show
-    @checkup = Checkup.where(state: 'paid').find(params[:id])
+    @checkup = Checkup.find(params[:id])
   end
 
   def localisation
     @user = current_user
+
+    @users = User.where(id: current_user.id).where.not(latitude: nil, longitude: nil)
+
+    @hash = Gmaps4rails.build_markers(@users) do |user, marker|
+      marker.lat user.latitude
+      marker.lng user.longitude
+      # marker.infowindow render_to_string(partial: "/flats/map_box", locals: { flat: flat })
+    end
+
     # si adresse vérifier quelle est dans bordeaux métropole
     # afficher un message disnt vous êtes trop loin, consulter en ligne ou modifier l'adresse
     # mettre un marqueur sur la carte
@@ -18,6 +27,7 @@ class CheckupsController < ApplicationController
     #
     # si payment en ligne => redirect_to new_checkup_payment_path(@checkup)
     # sinon direct => redirect_to checkup_path(@checkup)
+    User.where(id: current_user.id).near('Bordeaux', 1000)
     @booking_date = DateTime.parse(session[:date])
     @price = Checkup.price(false, current_user)
   end

@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "/video/", to: "pages#video"
   get "/calendar/", to: "pages#calendar"
   get "/localisation/", to: "checkups#localisation"
+  get "/test/", to: "checkups#test"
   post "/localisation/", to: "checkups#create_with_localisation"
   resources :checkups, only: [:show, :create] do
     resources :payments, only: [:new, :create]

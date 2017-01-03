@@ -10,24 +10,38 @@
   </a>
 </div>
 
-<div class="container-fluid">
-  <div class="row">
-    <div class="col-md-4">
-      <div class="dashboard-list">
-        <h2>Mon profil</h2>
-        <p><%= current_user.full_name %></p>
-        <h2>Mes consultations</h2>
-        <ul>
-          <% @checkups.each do |checkup| %>
-            <li>
-              <%= link_to checkup.date.strftime("Séance du %Y/%m/%d à %HH%M"), checkup_path(checkup) %>
-            </li>
-          <% end %>
-        </ul>
+<div class="wrapper-dashboard">
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-4">
+        <div class="dashboard-list">
+          <h2>Mon profil</h2>
+          <p><%= current_user.full_name %></p>
+          <h2>Mes consultations</h2>
+          <ul>
+            <% @checkups.each do |checkup| %>
+              <li>
+                <%= link_to checkup.date.strftime("Séance du %Y/%m/%d à %HH%M"), checkup_path(checkup) %>
+              </li>
+            <% end %>
+          </ul>
+        </div>
       </div>
-    </div>
-    <div class="col-md-8">
-      <%= line_chart Checkup.group_by_day(:created_at).count %>
+      <div class="col-md-8">
+        <h2>Suivi de mes constantes</h2>
+        <div class="dashboard-graph">
+          <h4>Poid</h4>
+          <%= line_chart @past_checkups.pluck(:date, :weight), min: 40, colors: ["#EE5F5B"], height: "200px" %>
+        </div>
+        <div class="dashboard-graph">
+          <h4>Tour de taille</h4>
+          <%= line_chart @past_checkups.pluck(:date, :waist), min: 5, colors: ["#FDB631"], height: "200px" %>
+        </div>
+        <div class="dashboard-graph">
+          <h4>Tour de hanche</h4>
+          <%= line_chart @past_checkups.pluck(:date, :hips), min: 5, colors: ["#32B796"], height: "200px" %>
+        </div>
+      </div>
     </div>
   </div>
 </div>
