@@ -1,6 +1,7 @@
 <h1>Checkup show</h1>
 
 <ul>
+  <li>Date: <%= @checkup.date %></li>
   <li>Status: <%= @checkup.state %></li>
   <li>Item: <%= @checkup.id %></li>
   <li>Prix: <%= humanized_money_with_symbol(@checkup.price) %></li>

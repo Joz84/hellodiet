@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20161113224815) do
+ActiveRecord::Schema.define(version: 20170102184055) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,36 +30,20 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.index ["attachinariable_type", "attachinariable_id", "scope"], name: "by_scoped_parent", using: :btree
   end
 
-  create_table "categories", force: :cascade do |t|
-    t.string   "name"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-  end
-
   create_table "checkups", force: :cascade do |t|
     t.string   "content"
     t.boolean  "online"
     t.datetime "date"
     t.integer  "user_id"
+    t.float    "weight"
+    t.float    "waist"
+    t.float    "hips"
     t.string   "state"
     t.integer  "price_cents", default: 0, null: false
     t.json     "payment"
     t.datetime "created_at",              null: false
     t.datetime "updated_at",              null: false
     t.index ["user_id"], name: "index_checkups_on_user_id", using: :btree
-  end
-
-  create_table "forms", force: :cascade do |t|
-    t.string   "token_gform"
-    t.float    "weight"
-    t.float    "waist"
-    t.float    "hips"
-    t.integer  "checkup_id"
-    t.integer  "category_id"
-    t.datetime "created_at",  null: false
-    t.datetime "updated_at",  null: false
-    t.index ["category_id"], name: "index_forms_on_category_id", using: :btree
-    t.index ["checkup_id"], name: "index_forms_on_checkup_id", using: :btree
   end
 
   create_table "users", force: :cascade do |t|
@@ -87,11 +71,11 @@ ActiveRecord::Schema.define(version: 20161113224815) do
     t.text     "comment"
     t.datetime "birthday"
     t.float    "size"
+    t.float    "latitude"
+    t.float    "longitude"
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
   end
 
   add_foreign_key "checkups", "users"
-  add_foreign_key "forms", "categories"
-  add_foreign_key "forms", "checkups"
 end

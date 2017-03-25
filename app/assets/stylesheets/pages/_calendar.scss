@@ -1,9 +1,9 @@
 .wrapper-calendar{
-  background: #e4f9f4;
-  padding-top: 100px;
+  background: $my-blue;
+  padding-top: 10px;
   padding-left: 50px;
   padding-right: 50px;
-  height: 100vh;
+  height: 79vh;
   text-align: center;
 }
 
@@ -24,7 +24,7 @@
   }
 
   th {
-    padding: 6px;
+    padding: 6px !important;
     border-bottom: 2px solid rgb(221, 221, 221);
     border-collapse: collapse;
     border-left: 1px solid rgb(221, 221, 221);
@@ -35,7 +35,7 @@
   }
 
   td {
-    padding: 6px;
+    padding: 6px !important;
     vertical-align: top;
     width: 14%;
 
@@ -54,9 +54,9 @@
     border-left-width: 1px;
   }
 
-  .day {
-    height: 80px;
-  }
+  // .day {
+  //   height: 50px;
+  // }
 
   .wday-0 {}
   .wday-1 {}
@@ -86,4 +86,55 @@
   .has-events {
     background: #ffcccc
   }
+}
+
+.btn-calendar-orange {
+  color: white;
+  background: $my-orange;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-calendar-orange:hover {
+  text-decoration: none !important;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn-calendar-blue {
+  color: white;
+  background: $my-blue2;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-calendar-blue:hover {
+  text-decoration: none !important;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
+}
+
+.btn-calendar-orange2 {
+  color: white;
+  background: $my-orange2;
+  padding: 5px;
+  margin-top: 2px;
+  border-radius: 5px;
+  font-weight: bold;
+  font-size: 12px;
+}
+
+.btn-calendar-orange2:hover {
+  text-decoration: none !important;
+  color: white;
+  cursor: pointer;
+  opacity: 0.8;
 }

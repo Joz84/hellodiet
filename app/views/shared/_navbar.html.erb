@@ -1,24 +1,24 @@
 <!-- navbar -->
-<div class="navbar-wagon navbar-wagon-fixed">
+<div class="navbar-hellodiet">
   <!-- Logo -->
-  <a href="/" class="navbar-wagon-brand">
+  <a href="/" class="navbar-logo">
     <img src="http://res.cloudinary.com/dpilgpat0/image/upload/v1479066097/hellodiet/logo/logo-blanc2.png" />
   </a>
 
   <!-- Right Navigation -->
-  <div class="navbar-wagon-right hidden-xs hidden-sm">
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Qui suis-je ?</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Mon approche</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Mes prestations</a>
-    <a href="" class="navbar-wagon-item navbar-wagon-link">Contact</a>
+  <div class="navbar-right hidden-xs hidden-sm">
+    <a href="" class="navbar-item navbar-link">Qui suis-je ?</a>
+    <a href="" class="navbar-item navbar-link">Mon approche</a>
+    <a href="" class="navbar-item navbar-link">Mes prestations</a>
+    <a href="" class="navbar-item navbar-link">Contact</a>
   </div>
 
   <% if current_user %>
   <!-- Profile picture and dropdown -->
-    <div class="navbar-wagon-item">
+    <div class="navbar-item">
       <div class="dropdown">
         <i class="fa fa-bars  white" data-toggle="dropdown"></i>
-        <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
+        <ul class="dropdown-menu dropdown-menu-right navbar-dropdown-menu">
           <li><%= link_to "Profile", root_path %></li>
           <li><%= link_to "Dashboard", root_path %></li>
           <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
@@ -27,11 +27,19 @@
     </div>
   <% else %>
     <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
-      <div class="navbar-login">
+      <div id="navbar-hover">
+        <div class="navbar-login">
           <%= f.input :email, required: false, autofocus: true, label: false, class: "navbar-email" %>
           <%= f.input :password, required: false, label: false, class: "navbar-password" %>
-          <%= f.button :submit, "Log in", class: "navbar-submit" %>
+          <button type="submit" name="commit" class="btn btn-primary">
+            <i class="fa fa-sign-in white"></i>
+          </button>
+        </div>
       </div>
     <% end %>
+    <div id="navbar-button-login" class="btn btn-primary">
+      Se connecter
+    </div>
+
   <% end %>
 </div>

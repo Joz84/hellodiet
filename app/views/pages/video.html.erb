@@ -1,0 +1,20 @@
+<div class="tabs">
+  <a class="tab" href="/">
+    <h3>Mon suivi</h3>
+  </a>
+  <a class="tab active" href="/video">
+    <h3>Mon espace video</h3>
+  </a>
+  <a class="tab" href="/calendar">
+    <h3>Mon agenda</h3>
+  </a>
+</div>
+
+<div class="wrapper-video">
+  <div class="container-video">
+    <h4>Votre conseil en ligne</h4>
+    <p><i>Appuyer sur "enter room" pour commencer la séance vidéo</i></p>
+    <iframe src=<%= "https://appear.in/hellodiet-#{current_user.id}-#{current_user.full_name}" %> width="800" height="400" frameborder="0"></iframe>
+    <%= link_to "Quitter la vidéo", video_path, class: "btn btn-orange" %>
+  </div>
+</div>
